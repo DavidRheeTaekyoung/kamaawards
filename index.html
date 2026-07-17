@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KAMA — 2027</title>
+<meta name="description" content="The biggest night in K-POP is coming to America. 2027.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ctext x='32' y='44' font-family='Arial Black' font-size='34' font-weight='900' fill='%23fff' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500&family=Archivo+Black&display=swap">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;}
+body{
+  background:#000; color:#fff; overflow:hidden;
+  font-family:'Archivo',-apple-system,sans-serif;
+  display:flex; align-items:center; justify-content:center;
+}
+/* slow breathing glow */
+.glow{
+  position:fixed; left:50%; top:50%; width:130vmax; height:130vmax;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle at center, rgba(168,85,247,.16), rgba(236,72,153,.07) 28%, transparent 55%);
+  animation:breathe 9s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes breathe{0%,100%{opacity:.5; transform:translate(-50%,-50%) scale(1);}50%{opacity:1; transform:translate(-50%,-50%) scale(1.12);}}
+/* grain */
+body::after{
+  content:''; position:fixed; inset:-50%;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  animation:grain 8s steps(10) infinite; pointer-events:none;
+}
+@keyframes grain{0%,100%{transform:translate(0,0);}10%{transform:translate(-3%,2%);}30%{transform:translate(2%,-4%);}50%{transform:translate(-4%,-2%);}70%{transform:translate(3%,3%);}90%{transform:translate(-2%,4%);}}
+
+.stage{position:relative; text-align:center; padding:0 24px; z-index:2;}
+.eyebrow{
+  font-size:clamp(10px,1.4vw,13px); letter-spacing:.55em; text-indent:.55em;
+  color:rgba(255,255,255,.55); font-weight:500; text-transform:uppercase;
+  opacity:0; animation:rise 1.6s cubic-bezier(.22,.61,.36,1) .4s forwards;
+}
+.mark{
+  font-family:'Archivo Black',sans-serif;
+  font-size:clamp(72px,20vw,240px); line-height:.95; letter-spacing:.02em;
+  margin:18px 0 10px;
+  background:linear-gradient(180deg,#fff 30%,#8b8b95 78%,#3a3a42);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  filter:drop-shadow(0 0 42px rgba(217,70,239,.25));
+  opacity:0; animation:rise 1.8s cubic-bezier(.22,.61,.36,1) .9s forwards;
+}
+.line{
+  font-size:clamp(14px,2.2vw,20px); color:rgba(255,255,255,.82); font-weight:400;
+  letter-spacing:.04em;
+  opacity:0; animation:rise 1.6s cubic-bezier(.22,.61,.36,1) 1.6s forwards;
+}
+.line b{
+  font-weight:500;
+  background:linear-gradient(90deg,#c084fc,#f0abfc,#f9a8d4);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.meta{
+  margin-top:46px; display:flex; align-items:center; justify-content:center; gap:22px;
+  font-size:clamp(10px,1.3vw,12.5px); letter-spacing:.34em; text-indent:.34em;
+  color:rgba(255,255,255,.42); text-transform:uppercase;
+  opacity:0; animation:rise 1.6s cubic-bezier(.22,.61,.36,1) 2.3s forwards;
+}
+.meta .dot{width:3px; height:3px; border-radius:50%; background:rgba(255,255,255,.4);}
+.coords{
+  position:fixed; bottom:30px; left:0; right:0; text-align:center;
+  font-size:10.5px; letter-spacing:.3em; text-indent:.3em; color:rgba(255,255,255,.22);
+  opacity:0; animation:rise 2s ease 3.2s forwards;
+}
+@keyframes rise{from{opacity:0; transform:translateY(26px);}to{opacity:1; transform:none;}}
+@media (prefers-reduced-motion: reduce){
+  .glow,body::after{animation:none;}
+  .eyebrow,.mark,.line,.meta,.coords{animation:none; opacity:1; transform:none;}
+}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<main class="stage">
+  <p class="eyebrow">Something big is coming</p>
+  <h1 class="mark">KAMA</h1>
+  <p class="line">The biggest night in <b>K-POP</b> is coming to America</p>
+  <div class="meta">
+    <span>2027</span><span class="dot"></span><span>Los Angeles</span><span class="dot"></span><span>Stay tuned</span>
+  </div>
+</main>
+<p class="coords">33.9535° N &nbsp;·&nbsp; 118.3392° W</p>
+</body>
+</html>
