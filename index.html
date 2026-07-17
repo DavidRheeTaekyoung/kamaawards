@@ -3,91 +3,343 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KAMA — 2027</title>
-<meta name="description" content="The biggest night in K-POP is coming to America. 2027.">
+<title>KAMA — K-Pop American Music Awards · 2027</title>
+<meta name="description" content="Beyond awards. We make K-POP history. KAMA — K-Pop American Music Awards, coming to the United States in 2027.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ctext x='32' y='44' font-family='Arial Black' font-size='34' font-weight='900' fill='%23fff' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500&family=Archivo+Black&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&family=Archivo+Black&display=swap">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-html,body{height:100%;}
+html{scroll-behavior:smooth;}
 body{
-  background:#000; color:#fff; overflow:hidden;
+  background:#030103; color:#fff;
   font-family:'Archivo',-apple-system,sans-serif;
-  display:flex; align-items:center; justify-content:center;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
 }
-/* slow breathing glow */
-.glow{
-  position:fixed; left:50%; top:50%; width:130vmax; height:130vmax;
+::selection{background:#c026d3; color:#fff;}
+
+/* ---------- ambient background ---------- */
+.bg{position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;}
+.bg .glow{
+  position:absolute; left:50%; top:38%; width:140vmax; height:140vmax;
   transform:translate(-50%,-50%);
-  background:radial-gradient(circle at center, rgba(168,85,247,.16), rgba(236,72,153,.07) 28%, transparent 55%);
-  animation:breathe 9s ease-in-out infinite;
-  pointer-events:none;
+  background:radial-gradient(circle at center, rgba(168,85,247,.14), rgba(236,72,153,.06) 30%, transparent 55%);
+  animation:breathe 10s ease-in-out infinite;
 }
-@keyframes breathe{0%,100%{opacity:.5; transform:translate(-50%,-50%) scale(1);}50%{opacity:1; transform:translate(-50%,-50%) scale(1.12);}}
+@keyframes breathe{0%,100%{opacity:.55;}50%{opacity:1;}}
+.orb{position:absolute; border-radius:50%; filter:blur(70px); opacity:.5; will-change:transform;}
+.orb.o1{width:420px;height:420px; background:rgba(147,51,234,.32); left:-120px; top:12%;
+  animation:drift1 22s ease-in-out infinite;}
+.orb.o2{width:360px;height:360px; background:rgba(219,39,119,.26); right:-100px; top:44%;
+  animation:drift2 26s ease-in-out infinite;}
+.orb.o3{width:300px;height:300px; background:rgba(59,130,246,.18); left:32%; top:78%;
+  animation:drift3 30s ease-in-out infinite;}
+@keyframes drift1{0%,100%{transform:translate(0,0);}50%{transform:translate(90px,60px);}}
+@keyframes drift2{0%,100%{transform:translate(0,0);}50%{transform:translate(-110px,-70px);}}
+@keyframes drift3{0%,100%{transform:translate(0,0);}50%{transform:translate(70px,-90px);}}
+/* stars */
+.stars{position:absolute; inset:0;
+  background-image:
+    radial-gradient(1px 1px at 12% 22%, rgba(255,255,255,.7), transparent),
+    radial-gradient(1px 1px at 28% 68%, rgba(255,255,255,.5), transparent),
+    radial-gradient(1.5px 1.5px at 44% 12%, rgba(255,255,255,.6), transparent),
+    radial-gradient(1px 1px at 58% 48%, rgba(255,255,255,.45), transparent),
+    radial-gradient(1.5px 1.5px at 71% 82%, rgba(255,255,255,.55), transparent),
+    radial-gradient(1px 1px at 84% 28%, rgba(255,255,255,.6), transparent),
+    radial-gradient(1px 1px at 93% 62%, rgba(255,255,255,.4), transparent),
+    radial-gradient(1px 1px at 6% 86%, rgba(255,255,255,.5), transparent);
+  animation:twinkle 6s ease-in-out infinite alternate;
+}
+@keyframes twinkle{from{opacity:.35;}to{opacity:.9;}}
 /* grain */
 body::after{
-  content:''; position:fixed; inset:-50%;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
-  animation:grain 8s steps(10) infinite; pointer-events:none;
+  content:''; position:fixed; inset:-50%; z-index:1; pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+  animation:grain 8s steps(10) infinite;
 }
 @keyframes grain{0%,100%{transform:translate(0,0);}10%{transform:translate(-3%,2%);}30%{transform:translate(2%,-4%);}50%{transform:translate(-4%,-2%);}70%{transform:translate(3%,3%);}90%{transform:translate(-2%,4%);}}
 
-.stage{position:relative; text-align:center; padding:0 24px; z-index:2;}
+main{position:relative; z-index:2;}
+.section{min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:110px 24px; text-align:center;}
+
+/* ---------- hero ---------- */
+.hero{min-height:100svh; position:relative;}
 .eyebrow{
-  font-size:clamp(10px,1.4vw,13px); letter-spacing:.55em; text-indent:.55em;
-  color:rgba(255,255,255,.55); font-weight:500; text-transform:uppercase;
-  opacity:0; animation:rise 1.6s cubic-bezier(.22,.61,.36,1) .4s forwards;
+  font-size:clamp(11px,1.5vw,15px); letter-spacing:.5em; text-indent:.5em;
+  font-weight:500; text-transform:uppercase;
+  background:linear-gradient(90deg, rgba(255,255,255,.5), #fff, rgba(255,255,255,.5));
+  background-size:200% 100%;
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  animation:rise 1.4s cubic-bezier(.22,.61,.36,1) .3s both, sheen 5s linear 2s infinite;
 }
+@keyframes sheen{from{background-position:200% 0;}to{background-position:-200% 0;}}
 .mark{
   font-family:'Archivo Black',sans-serif;
-  font-size:clamp(72px,20vw,240px); line-height:.95; letter-spacing:.02em;
-  margin:18px 0 10px;
-  background:linear-gradient(180deg,#fff 30%,#8b8b95 78%,#3a3a42);
+  font-size:clamp(88px,23vw,280px); line-height:.92; letter-spacing:.01em;
+  margin:22px 0 8px; position:relative;
+  background:linear-gradient(180deg,#fff 28%,#9a9aa6 74%,#43434c);
   -webkit-background-clip:text; background-clip:text; color:transparent;
-  filter:drop-shadow(0 0 42px rgba(217,70,239,.25));
-  opacity:0; animation:rise 1.8s cubic-bezier(.22,.61,.36,1) .9s forwards;
+  filter:drop-shadow(0 0 50px rgba(217,70,239,.3));
+  animation:rise 1.7s cubic-bezier(.22,.61,.36,1) .8s both;
 }
-.line{
-  font-size:clamp(14px,2.2vw,20px); color:rgba(255,255,255,.82); font-weight:400;
-  letter-spacing:.04em;
-  opacity:0; animation:rise 1.6s cubic-bezier(.22,.61,.36,1) 1.6s forwards;
+.mark::after{ /* moving sheen over the wordmark */
+  content:'KAMA'; position:absolute; inset:0;
+  background:linear-gradient(115deg, transparent 42%, rgba(255,255,255,.85) 50%, transparent 58%);
+  background-size:250% 100%;
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  animation:sweep 4.5s ease-in-out 2.6s infinite;
 }
-.line b{
+@keyframes sweep{0%{background-position:180% 0;}45%,100%{background-position:-90% 0;}}
+.subname{
+  font-size:clamp(13px,2vw,20px); letter-spacing:.42em; text-indent:.42em;
+  text-transform:uppercase; color:rgba(255,255,255,.75); font-weight:400;
+  animation:rise 1.5s cubic-bezier(.22,.61,.36,1) 1.4s both;
+}
+.when{
+  margin-top:42px; font-family:'Archivo Black',sans-serif;
+  font-size:clamp(30px,5.5vw,58px); letter-spacing:.06em;
+  background:linear-gradient(90deg,#c084fc,#f0abfc,#f9a8d4,#c084fc);
+  background-size:300% 100%;
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  animation:rise 1.5s cubic-bezier(.22,.61,.36,1) 1.9s both, flow 7s linear 3s infinite;
+}
+@keyframes flow{from{background-position:0% 0;}to{background-position:300% 0;}}
+.scrollhint{
+  position:absolute; bottom:34px; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  font-size:10px; letter-spacing:.35em; text-indent:.35em; color:rgba(255,255,255,.4);
+  animation:rise 1.5s ease 2.8s both;
+}
+.scrollhint .bar{width:1px; height:44px; overflow:hidden; background:rgba(255,255,255,.12); position:relative;}
+.scrollhint .bar::after{content:''; position:absolute; left:0; top:-50%; width:100%; height:50%;
+  background:linear-gradient(#e879f9, transparent); animation:fall 1.8s ease-in-out infinite;}
+@keyframes fall{to{top:110%;}}
+@keyframes rise{from{opacity:0; transform:translateY(30px);}to{opacity:1; transform:translateY(0);}}
+.scrollhint{animation-name:risex;}
+@keyframes risex{from{opacity:0;}to{opacity:1;}}
+
+/* ---------- marquee band ---------- */
+.band{
+  position:relative; z-index:2; padding:18px 0;
+  border-top:1px solid rgba(255,255,255,.08); border-bottom:1px solid rgba(255,255,255,.08);
+  overflow:hidden; background:rgba(255,255,255,.015);
+  -webkit-mask-image:linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image:linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.band .track{display:flex; gap:0; width:max-content; animation:slide 30s linear infinite;}
+.band span{
+  font-family:'Archivo Black',sans-serif; font-size:15px; letter-spacing:.3em;
+  color:rgba(255,255,255,.34); text-transform:uppercase; white-space:nowrap; padding:0 28px;
+}
+.band span i{font-style:normal; color:#d946ef; padding-right:56px;}
+@keyframes slide{to{transform:translateX(-50%);}}
+
+/* ---------- statement ---------- */
+.statement h2{
+  font-family:'Archivo Black',sans-serif;
+  font-size:clamp(30px,6vw,72px); line-height:1.14; letter-spacing:.01em;
+  max-width:1100px;
+}
+.statement h2 .l1, .statement h2 .l2{display:block;}
+.statement h2 .l2{
+  background:linear-gradient(90deg,#c084fc,#f472b6);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.statement p{
+  margin-top:30px; font-size:clamp(15px,2vw,20px); font-weight:300;
+  color:rgba(255,255,255,.66); letter-spacing:.05em;
+}
+
+/* ---------- pillars ---------- */
+.pillars-wrap{max-width:1180px; width:100%;}
+.pillars-title{
+  font-size:12px; letter-spacing:.5em; text-indent:.5em; text-transform:uppercase;
+  color:rgba(255,255,255,.45); margin-bottom:56px;
+}
+.pillars{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+@media(max-width:840px){.pillars{grid-template-columns:1fr; max-width:460px; margin:0 auto;}}
+.pillar{
+  position:relative; padding:52px 34px 46px; border-radius:20px; text-align:left;
+  background:rgba(255,255,255,.028);
+  border:1px solid rgba(255,255,255,.09);
+  backdrop-filter:blur(6px);
+  transition:transform .5s cubic-bezier(.22,.61,.36,1), border-color .5s, background .5s;
+  overflow:hidden;
+}
+.pillar::before{ /* top gradient edge */
+  content:''; position:absolute; top:0; left:12%; right:12%; height:1px;
+  background:linear-gradient(90deg, transparent, #d946ef, transparent);
+  opacity:.55; transition:opacity .5s;
+}
+.pillar::after{ /* hover glow */
+  content:''; position:absolute; inset:-40%; border-radius:50%;
+  background:radial-gradient(circle at 50% 0%, rgba(217,70,239,.16), transparent 60%);
+  opacity:0; transition:opacity .6s;
+}
+.pillar:hover{transform:translateY(-10px); border-color:rgba(217,70,239,.4); background:rgba(255,255,255,.045);}
+.pillar:hover::before{opacity:1;}
+.pillar:hover::after{opacity:1;}
+.pillar .num{
+  font-family:'Archivo Black',sans-serif; font-size:13px; letter-spacing:.3em;
+  background:linear-gradient(90deg,#c084fc,#f472b6);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  margin-bottom:26px;
+}
+.pillar h3{
+  font-family:'Archivo Black',sans-serif; font-size:clamp(24px,2.6vw,30px);
+  letter-spacing:.02em; margin-bottom:16px;
+}
+.pillar p{font-size:15px; font-weight:300; line-height:1.75; color:rgba(255,255,255,.6); letter-spacing:.02em;}
+.pillar b{color:rgba(255,255,255,.92); font-weight:600;}
+
+/* ---------- manifesto ---------- */
+.manifesto p{
+  max-width:820px; font-size:clamp(19px,2.8vw,30px); font-weight:300; line-height:1.65;
+  color:rgba(255,255,255,.82); letter-spacing:.01em;
+}
+.manifesto p + p{margin-top:44px;}
+.manifesto .hl{
   font-weight:500;
   background:linear-gradient(90deg,#c084fc,#f0abfc,#f9a8d4);
   -webkit-background-clip:text; background-clip:text; color:transparent;
 }
-.meta{
-  margin-top:46px; display:flex; align-items:center; justify-content:center; gap:22px;
-  font-size:clamp(10px,1.3vw,12.5px); letter-spacing:.34em; text-indent:.34em;
-  color:rgba(255,255,255,.42); text-transform:uppercase;
-  opacity:0; animation:rise 1.6s cubic-bezier(.22,.61,.36,1) 2.3s forwards;
+
+/* ---------- finale ---------- */
+.finale h2{
+  font-family:'Archivo Black',sans-serif;
+  font-size:clamp(34px,7vw,86px); line-height:1.1; letter-spacing:.01em;
+  max-width:1150px;
+  background:linear-gradient(90deg,#fff,#c084fc,#f472b6,#fff);
+  background-size:300% 100%;
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  animation:flow 8s linear infinite;
+  filter:drop-shadow(0 0 40px rgba(217,70,239,.22));
 }
-.meta .dot{width:3px; height:3px; border-radius:50%; background:rgba(255,255,255,.4);}
+.finale .togeth{display:block; margin-top:6px;}
+.finale .foot{
+  margin-top:70px; display:flex; align-items:center; gap:20px;
+  font-size:11px; letter-spacing:.34em; text-indent:.34em; color:rgba(255,255,255,.42);
+  text-transform:uppercase;
+}
+.finale .foot .dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.4);}
 .coords{
-  position:fixed; bottom:30px; left:0; right:0; text-align:center;
-  font-size:10.5px; letter-spacing:.3em; text-indent:.3em; color:rgba(255,255,255,.22);
-  opacity:0; animation:rise 2s ease 3.2s forwards;
+  padding:0 0 34px; text-align:center;
+  font-size:10.5px; letter-spacing:.3em; text-indent:.3em; color:rgba(255,255,255,.2);
+  position:relative; z-index:2;
 }
-@keyframes rise{from{opacity:0; transform:translateY(26px);}to{opacity:1; transform:none;}}
+
+/* ---------- reveal on scroll ---------- */
+.reveal{opacity:0; transform:translateY(44px); transition:opacity 1s cubic-bezier(.22,.61,.36,1), transform 1s cubic-bezier(.22,.61,.36,1);}
+.reveal.in{opacity:1; transform:none;}
+.reveal.d1{transition-delay:.12s;} .reveal.d2{transition-delay:.24s;} .reveal.d3{transition-delay:.36s;}
+
 @media (prefers-reduced-motion: reduce){
-  .glow,body::after{animation:none;}
-  .eyebrow,.mark,.line,.meta,.coords{animation:none; opacity:1; transform:none;}
+  *{animation:none !important; transition:none !important;}
+  .reveal{opacity:1; transform:none;}
 }
 </style>
 </head>
 <body>
-<div class="glow"></div>
-<main class="stage">
-  <p class="eyebrow">Something big is coming</p>
-  <h1 class="mark">KAMA</h1>
-  <p class="line">The biggest night in <b>K-POP</b> is coming to America</p>
-  <div class="meta">
-    <span>2027</span><span class="dot"></span><span>Los Angeles</span><span class="dot"></span><span>Stay tuned</span>
+
+<div class="bg">
+  <div class="glow"></div>
+  <div class="stars"></div>
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+  <div class="orb o3"></div>
+</div>
+
+<main>
+  <!-- HERO -->
+  <section class="section hero">
+    <p class="eyebrow">Beyond Awards&#8202;.&#8202; We Make K-POP History&#8202;.</p>
+    <h1 class="mark">KAMA</h1>
+    <p class="subname">K-Pop American Music Awards</p>
+    <p class="when">2027.4</p>
+    <div class="scrollhint"><span>Scroll</span><div class="bar"></div></div>
+  </section>
+
+  <!-- MARQUEE BAND -->
+  <div class="band" aria-hidden="true">
+    <div class="track">
+      <span>KAMA<i>&nbsp;&#10022;</i>2027.4<i>&nbsp;&#10022;</i>United States<i>&nbsp;&#10022;</i>K-Pop American Music Awards<i>&nbsp;&#10022;</i></span>
+      <span>KAMA<i>&nbsp;&#10022;</i>2027.4<i>&nbsp;&#10022;</i>United States<i>&nbsp;&#10022;</i>K-Pop American Music Awards<i>&nbsp;&#10022;</i></span>
+    </div>
   </div>
+
+  <!-- STATEMENT -->
+  <section class="section statement">
+    <h2>
+      <span class="l1 reveal">The Choice of Global Fans.</span>
+      <span class="l2 reveal d1">The Stage for K-POP Stars.</span>
+    </h2>
+    <p class="reveal d2">A new K-POP awards experience, coming to the United States.</p>
+  </section>
+
+  <!-- PILLARS -->
+  <section class="section">
+    <div class="pillars-wrap">
+      <p class="pillars-title reveal">Why KAMA</p>
+      <div class="pillars">
+        <div class="pillar reveal">
+          <div class="num">01</div>
+          <h3>The First</h3>
+          <p>The <b>first global K-Pop awards show</b> held in the U.S.</p>
+        </div>
+        <div class="pillar reveal d1">
+          <div class="num">02</div>
+          <h3>The Standard</h3>
+          <p>Built on <b>trusted global data</b> and authoritative chart sources</p>
+        </div>
+        <div class="pillar reveal d2">
+          <div class="num">03</div>
+          <h3>The Fandom</h3>
+          <p><b>150 million global fans</b> engaged across digital and live platforms</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="section manifesto">
+    <p class="reveal">Chosen by fans and brought to life on stage, KAMA celebrates the <span class="hl">passion, energy, and global power of K-POP</span> in the United States.</p>
+    <p class="reveal d1">More than an awards show, it is a fan-driven moment where <span class="hl">the voices of fans light up the stage</span> for the stars they love.</p>
+  </section>
+
+  <!-- FINALE -->
+  <section class="section finale">
+    <h2 class="reveal">Let&rsquo;s build the next global stage for K-POP,<span class="togeth">together.</span></h2>
+    <div class="foot reveal d2">
+      <span>2027.4</span><span class="dot"></span><span>United States</span><span class="dot"></span><span>Stay tuned</span>
+    </div>
+  </section>
+
+  <p class="coords">33.9535&deg; N &nbsp;&middot;&nbsp; 118.3392&deg; W</p>
 </main>
-<p class="coords">33.9535° N &nbsp;·&nbsp; 118.3392° W</p>
+
+<script>
+// reveal on scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// gentle parallax for orbs
+const o1 = document.querySelector('.o1'), o2 = document.querySelector('.o2'), o3 = document.querySelector('.o3');
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => {
+    const y = window.scrollY;
+    o1.style.marginTop = (y * 0.12) + 'px';
+    o2.style.marginTop = (y * -0.08) + 'px';
+    o3.style.marginTop = (y * 0.05) + 'px';
+    ticking = false;
+  });
+}, { passive: true });
+</script>
 </body>
 </html>
