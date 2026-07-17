@@ -97,16 +97,14 @@ main{position:relative; z-index:2;}
 }
 .trophy-spin{
   position:absolute; inset:0; transform-style:preserve-3d;
-  animation:tspin 14s linear infinite, tbob 6s ease-in-out infinite;
+  animation:tosc 9s ease-in-out infinite alternate, tbob 7s ease-in-out infinite;
 }
-@keyframes tspin{from{transform:rotateY(0deg);}to{transform:rotateY(360deg);}}
-@keyframes tbob{0%,100%{margin-top:0;}50%{margin-top:-12px;}}
+@keyframes tosc{from{transform:rotateY(-22deg);}to{transform:rotateY(22deg);}}
+@keyframes tbob{0%,100%{margin-top:0;}50%{margin-top:-10px;}}
 .trophy-spin svg{
   position:absolute; inset:0; width:100%; height:100%;
-  backface-visibility:visible;
-  filter:drop-shadow(0 0 26px rgba(217,70,239,.4));
+  filter:drop-shadow(0 14px 30px rgba(0,0,0,.55)) drop-shadow(0 0 34px rgba(217,70,239,.28));
 }
-.trophy-spin svg.p2{transform:rotateY(90deg);}
 .trophy-glow{
   position:absolute; left:50%; bottom:-26px; width:150%; height:44px;
   transform:translateX(-50%);
@@ -320,48 +318,115 @@ main{position:relative; z-index:2;}
     <p class="eyebrow">Beyond Awards&#8202;.&#8202; We Make K-POP History&#8202;.</p>
     <div class="trophy-wrap" aria-hidden="true">
       <div class="trophy-spin">
-        <svg class="p1" viewBox="0 0 200 330" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 220 360" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="starL" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#f5d0fe"/><stop offset=".5" stop-color="#d946ef"/><stop offset="1" stop-color="#9333ea"/>
+            <!-- crystal facets -->
+            <linearGradient id="cCenter" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ffffff" stop-opacity=".95"/>
+              <stop offset=".22" stop-color="#e9d5ff" stop-opacity=".55"/>
+              <stop offset=".55" stop-color="#c4b5fd" stop-opacity=".38"/>
+              <stop offset="1" stop-color="#7c6bad" stop-opacity=".55"/>
             </linearGradient>
-            <linearGradient id="starR" x1="1" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#f9a8d4"/><stop offset=".55" stop-color="#c026d3"/><stop offset="1" stop-color="#6b21a8"/>
+            <linearGradient id="cLeft" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#b9a8e8" stop-opacity=".78"/>
+              <stop offset="1" stop-color="#e0d3ff" stop-opacity=".4"/>
             </linearGradient>
-            <linearGradient id="chrome" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#55555f"/><stop offset=".18" stop-color="#e8e8ee"/><stop offset=".5" stop-color="#ffffff"/><stop offset=".82" stop-color="#a8a8b4"/><stop offset="1" stop-color="#3c3c46"/>
+            <linearGradient id="cRight" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#8d7cc5" stop-opacity=".5"/>
+              <stop offset="1" stop-color="#4d3f78" stop-opacity=".85"/>
             </linearGradient>
-            <linearGradient id="chromeV" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#f4f4f8"/><stop offset=".6" stop-color="#9a9aa6"/><stop offset="1" stop-color="#43434c"/>
+            <!-- gold -->
+            <linearGradient id="goldStar" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#fff7d6"/><stop offset=".4" stop-color="#f7ce54"/><stop offset=".75" stop-color="#d4980f"/><stop offset="1" stop-color="#8f6508"/>
             </linearGradient>
-            <linearGradient id="baseG" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#2c2436"/><stop offset=".5" stop-color="#4c3a63"/><stop offset="1" stop-color="#1e1828"/>
+            <linearGradient id="goldDark" x1="1" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ffe9a3"/><stop offset=".5" stop-color="#c78f10"/><stop offset="1" stop-color="#6e4c05"/>
             </linearGradient>
+            <linearGradient id="goldBand" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#7a5708"/><stop offset=".18" stop-color="#f3cf6b"/><stop offset=".5" stop-color="#fff3c4"/><stop offset=".8" stop-color="#d3a92c"/><stop offset="1" stop-color="#6e4c05"/>
+            </linearGradient>
+            <!-- black marble -->
+            <linearGradient id="marble" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#43434e"/><stop offset=".35" stop-color="#23232b"/><stop offset="1" stop-color="#0c0c11"/>
+            </linearGradient>
+            <linearGradient id="marbleFace" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#15151b"/><stop offset=".3" stop-color="#34343f"/><stop offset=".52" stop-color="#4a4a58"/><stop offset=".72" stop-color="#26262e"/><stop offset="1" stop-color="#0e0e13"/>
+            </linearGradient>
+            <filter id="blur3"><feGaussianBlur stdDeviation="3"/></filter>
+            <filter id="blur8"><feGaussianBlur stdDeviation="8"/></filter>
+            <clipPath id="spireClip">
+              <polygon points="110,16 138,68 130,262 90,262 82,68"/>
+            </clipPath>
           </defs>
-          <g id="trophy-shape">
-            <!-- star head, faceted -->
-            <polygon points="100,14 113,52 152,52 121,76 133,114 100,90 67,114 79,76 48,52 87,52" fill="url(#starL)"/>
-            <polygon points="100,14 113,52 152,52 121,76 133,114 100,90 100,14" fill="url(#starR)" opacity=".85"/>
-            <polygon points="100,26 108,54 100,80 92,54" fill="#ffffff" opacity=".5"/>
-            <!-- neck orb -->
-            <circle cx="100" cy="124" r="7" fill="url(#chrome)"/>
-            <!-- column -->
-            <path d="M92 132 L108 132 L114 236 L86 236 Z" fill="url(#chrome)"/>
-            <path d="M97 132 L100 132 L101 236 L96 236 Z" fill="#ffffff" opacity=".55"/>
-            <!-- collar -->
-            <rect x="80" y="236" width="40" height="10" rx="5" fill="url(#chromeV)"/>
-            <!-- base tiers -->
-            <path d="M74 246 L126 246 L136 272 L64 272 Z" fill="url(#chromeV)"/>
-            <rect x="56" y="272" width="88" height="26" rx="6" fill="url(#baseG)" stroke="#8b5cf6" stroke-opacity=".45" stroke-width="1"/>
-            <text x="100" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="900" letter-spacing="4" fill="#e9d5ff">KAMA</text>
-            <rect x="48" y="298" width="104" height="14" rx="7" fill="#141019" stroke="#6d28d9" stroke-opacity=".35" stroke-width="1"/>
-            <!-- sparkles -->
-            <path d="M43 30 l2.5 7 7 2.5 -7 2.5 -2.5 7 -2.5 -7 -7 -2.5 7 -2.5 Z" fill="#f0abfc" opacity=".9"/>
-            <path d="M158 96 l2 5.5 5.5 2 -5.5 2 -2 5.5 -2 -5.5 -5.5 -2 5.5 -2 Z" fill="#e9d5ff" opacity=".8"/>
-            <path d="M36 150 l1.6 4.5 4.5 1.6 -4.5 1.6 -1.6 4.5 -1.6 -4.5 -4.5 -1.6 4.5 -1.6 Z" fill="#c084fc" opacity=".7"/>
+
+          <!-- ground shadow -->
+          <ellipse cx="110" cy="348" rx="70" ry="8" fill="#000" opacity=".55" filter="url(#blur8)"/>
+
+          <!-- ===== crystal spire (faceted obelisk) ===== -->
+          <!-- back glow inside crystal -->
+          <circle cx="110" cy="120" r="34" fill="#f0abfc" opacity=".5" filter="url(#blur8)"/>
+          <!-- side facets -->
+          <polygon points="110,16 82,68 90,262 104,262 100,68" fill="url(#cLeft)"/>
+          <polygon points="110,16 138,68 130,262 116,262 120,68" fill="url(#cRight)"/>
+          <!-- center facet -->
+          <polygon points="110,16 120,68 116,262 104,262 100,68" fill="url(#cCenter)"/>
+          <!-- crisp edge lines -->
+          <polyline points="110,16 100,68 104,262" fill="none" stroke="#ffffff" stroke-opacity=".8" stroke-width="1.1"/>
+          <polyline points="110,16 120,68 116,262" fill="none" stroke="#ffffff" stroke-opacity=".35" stroke-width=".8"/>
+          <polyline points="110,16 82,68 90,262" fill="none" stroke="#e9d5ff" stroke-opacity=".5" stroke-width=".8"/>
+          <polyline points="110,16 138,68 130,262" fill="none" stroke="#3d3161" stroke-opacity=".9" stroke-width="1"/>
+          <!-- tip glint -->
+          <circle cx="110" cy="18" r="3" fill="#fff"/>
+          <path d="M110 6 l1.8 8 8 1.8 -8 1.8 -1.8 8 -1.8 -8 -8 -1.8 8 -1.8 Z" fill="#ffffff" opacity=".95"/>
+          <!-- specular streaks -->
+          <polygon points="97,80 100,80 96,236 93,236" fill="#ffffff" opacity=".75"/>
+          <polygon points="124,90 126.5,90 124.5,225 122,225" fill="#ffffff" opacity=".3"/>
+          <!-- gold star suspended in crystal -->
+          <g>
+            <circle cx="110" cy="120" r="24" fill="#fde68a" opacity=".35" filter="url(#blur3)"/>
+            <polygon points="110,92 117.5,112 139,112 122,125 128.5,146 110,133 91.5,146 98,125 81,112 102.5,112" fill="url(#goldStar)"/>
+            <polygon points="110,92 117.5,112 139,112 122,125 128.5,146 110,133 110,92" fill="url(#goldDark)" opacity=".8"/>
+            <polygon points="110,98 114,113 110,127 106,113" fill="#fffbe8" opacity=".7"/>
           </g>
+          <!-- moving light sheen across crystal -->
+          <g clip-path="url(#spireClip)">
+            <rect x="-60" y="0" width="34" height="270" fill="#ffffff" opacity=".32" transform="skewX(-12)">
+              <animate attributeName="x" from="-70" to="240" dur="4.2s" repeatCount="indefinite"/>
+            </rect>
+          </g>
+
+          <!-- ===== base ===== -->
+          <!-- gold collar -->
+          <rect x="84" y="262" width="52" height="9" rx="2.5" fill="url(#goldBand)"/>
+          <rect x="84" y="262" width="52" height="3" rx="1.5" fill="#fff7d6" opacity=".55"/>
+          <!-- black marble block -->
+          <polygon points="78,271 142,271 152,305 68,305" fill="url(#marbleFace)"/>
+          <polygon points="78,271 142,271 144,276 76,276" fill="#565664" opacity=".7"/>
+          <line x1="88" y1="277" x2="80" y2="302" stroke="#8e8ea0" stroke-opacity=".28" stroke-width="1.6"/>
+          <line x1="96" y1="277" x2="90" y2="302" stroke="#8e8ea0" stroke-opacity=".14" stroke-width="3"/>
+          <!-- engraved gold plate -->
+          <rect x="86" y="282" width="48" height="13" rx="2" fill="url(#goldBand)"/>
+          <text x="110" y="291.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="8.5" font-weight="900" letter-spacing="3.4" fill="#4a3405">KAMA</text>
+          <!-- plinth -->
+          <rect x="60" y="305" width="100" height="16" rx="3" fill="url(#marble)"/>
+          <rect x="60" y="305" width="100" height="4" rx="2" fill="#6a6a7a" opacity=".55"/>
+          <rect x="54" y="321" width="112" height="10" rx="3" fill="#08080c"/>
+          <!-- floor reflection -->
+          <g opacity=".18" transform="translate(0,660) scale(1,-1)">
+            <polygon points="110,16 82,68 90,262 130,262 138,68" fill="url(#cCenter)"/>
+            <rect x="60" y="305" width="100" height="16" rx="3" fill="url(#marble)"/>
+          </g>
+          <!-- sparkles -->
+          <path d="M52 60 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2 Z" fill="#fff" opacity=".9">
+            <animate attributeName="opacity" values=".2;.95;.2" dur="3.2s" repeatCount="indefinite"/>
+          </path>
+          <path d="M168 130 l1.7 5 5 1.7 -5 1.7 -1.7 5 -1.7 -5 -5 -1.7 5 -1.7 Z" fill="#f5d0fe" opacity=".8">
+            <animate attributeName="opacity" values=".9;.15;.9" dur="4.1s" repeatCount="indefinite"/>
+          </path>
+          <path d="M46 200 l1.4 4 4 1.4 -4 1.4 -1.4 4 -1.4 -4 -4 -1.4 4 -1.4 Z" fill="#fde68a" opacity=".75">
+            <animate attributeName="opacity" values=".3;.85;.3" dur="5s" repeatCount="indefinite"/>
+          </path>
         </svg>
-        <svg class="p2" viewBox="0 0 200 330" xmlns="http://www.w3.org/2000/svg"><use href="#trophy-shape"/></svg>
       </div>
       <div class="trophy-glow"></div>
     </div>
