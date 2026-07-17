@@ -89,9 +89,35 @@ main{position:relative; z-index:2;}
   animation:rise 1.4s cubic-bezier(.22,.61,.36,1) .3s both, sheen 5s linear 2s infinite;
 }
 @keyframes sheen{from{background-position:200% 0;}to{background-position:-200% 0;}}
+/* ---- rotating trophy ---- */
+.trophy-wrap{
+  position:relative; height:clamp(150px,26vh,250px); aspect-ratio:200/330;
+  margin:14px auto 2px; perspective:900px;
+  opacity:0; animation:rise 1.8s cubic-bezier(.22,.61,.36,1) .6s both;
+}
+.trophy-spin{
+  position:absolute; inset:0; transform-style:preserve-3d;
+  animation:tspin 14s linear infinite, tbob 6s ease-in-out infinite;
+}
+@keyframes tspin{from{transform:rotateY(0deg);}to{transform:rotateY(360deg);}}
+@keyframes tbob{0%,100%{margin-top:0;}50%{margin-top:-12px;}}
+.trophy-spin svg{
+  position:absolute; inset:0; width:100%; height:100%;
+  backface-visibility:visible;
+  filter:drop-shadow(0 0 26px rgba(217,70,239,.4));
+}
+.trophy-spin svg.p2{transform:rotateY(90deg);}
+.trophy-glow{
+  position:absolute; left:50%; bottom:-26px; width:150%; height:44px;
+  transform:translateX(-50%);
+  background:radial-gradient(ellipse at center, rgba(217,70,239,.4), transparent 65%);
+  animation:tglow 6s ease-in-out infinite;
+}
+@keyframes tglow{0%,100%{opacity:.55; transform:translateX(-50%) scale(1);}50%{opacity:1; transform:translateX(-50%) scale(1.15);}}
+
 .mark{
   font-family:'Archivo Black',sans-serif;
-  font-size:clamp(88px,23vw,280px); line-height:.92; letter-spacing:.01em;
+  font-size:clamp(72px,17vw,200px); line-height:.92; letter-spacing:.01em;
   margin:22px 0 8px; position:relative;
   background:linear-gradient(180deg,#fff 28%,#9a9aa6 74%,#43434c);
   -webkit-background-clip:text; background-clip:text; color:transparent;
@@ -292,6 +318,53 @@ main{position:relative; z-index:2;}
   <section class="section hero">
     <div class="hero-bg"><img src="assets/arena.jpg" alt="" aria-hidden="true"></div>
     <p class="eyebrow">Beyond Awards&#8202;.&#8202; We Make K-POP History&#8202;.</p>
+    <div class="trophy-wrap" aria-hidden="true">
+      <div class="trophy-spin">
+        <svg class="p1" viewBox="0 0 200 330" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="starL" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f5d0fe"/><stop offset=".5" stop-color="#d946ef"/><stop offset="1" stop-color="#9333ea"/>
+            </linearGradient>
+            <linearGradient id="starR" x1="1" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f9a8d4"/><stop offset=".55" stop-color="#c026d3"/><stop offset="1" stop-color="#6b21a8"/>
+            </linearGradient>
+            <linearGradient id="chrome" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#55555f"/><stop offset=".18" stop-color="#e8e8ee"/><stop offset=".5" stop-color="#ffffff"/><stop offset=".82" stop-color="#a8a8b4"/><stop offset="1" stop-color="#3c3c46"/>
+            </linearGradient>
+            <linearGradient id="chromeV" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f4f4f8"/><stop offset=".6" stop-color="#9a9aa6"/><stop offset="1" stop-color="#43434c"/>
+            </linearGradient>
+            <linearGradient id="baseG" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#2c2436"/><stop offset=".5" stop-color="#4c3a63"/><stop offset="1" stop-color="#1e1828"/>
+            </linearGradient>
+          </defs>
+          <g id="trophy-shape">
+            <!-- star head, faceted -->
+            <polygon points="100,14 113,52 152,52 121,76 133,114 100,90 67,114 79,76 48,52 87,52" fill="url(#starL)"/>
+            <polygon points="100,14 113,52 152,52 121,76 133,114 100,90 100,14" fill="url(#starR)" opacity=".85"/>
+            <polygon points="100,26 108,54 100,80 92,54" fill="#ffffff" opacity=".5"/>
+            <!-- neck orb -->
+            <circle cx="100" cy="124" r="7" fill="url(#chrome)"/>
+            <!-- column -->
+            <path d="M92 132 L108 132 L114 236 L86 236 Z" fill="url(#chrome)"/>
+            <path d="M97 132 L100 132 L101 236 L96 236 Z" fill="#ffffff" opacity=".55"/>
+            <!-- collar -->
+            <rect x="80" y="236" width="40" height="10" rx="5" fill="url(#chromeV)"/>
+            <!-- base tiers -->
+            <path d="M74 246 L126 246 L136 272 L64 272 Z" fill="url(#chromeV)"/>
+            <rect x="56" y="272" width="88" height="26" rx="6" fill="url(#baseG)" stroke="#8b5cf6" stroke-opacity=".45" stroke-width="1"/>
+            <text x="100" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="900" letter-spacing="4" fill="#e9d5ff">KAMA</text>
+            <rect x="48" y="298" width="104" height="14" rx="7" fill="#141019" stroke="#6d28d9" stroke-opacity=".35" stroke-width="1"/>
+            <!-- sparkles -->
+            <path d="M43 30 l2.5 7 7 2.5 -7 2.5 -2.5 7 -2.5 -7 -7 -2.5 7 -2.5 Z" fill="#f0abfc" opacity=".9"/>
+            <path d="M158 96 l2 5.5 5.5 2 -5.5 2 -2 5.5 -2 -5.5 -5.5 -2 5.5 -2 Z" fill="#e9d5ff" opacity=".8"/>
+            <path d="M36 150 l1.6 4.5 4.5 1.6 -4.5 1.6 -1.6 4.5 -1.6 -4.5 -4.5 -1.6 4.5 -1.6 Z" fill="#c084fc" opacity=".7"/>
+          </g>
+        </svg>
+        <svg class="p2" viewBox="0 0 200 330" xmlns="http://www.w3.org/2000/svg"><use href="#trophy-shape"/></svg>
+      </div>
+      <div class="trophy-glow"></div>
+    </div>
     <h1 class="mark">KAMA</h1>
     <p class="subname">K-Pop American Music Awards</p>
     <p class="when">2027.4</p>
