@@ -91,7 +91,7 @@ main{position:relative; z-index:2;}
 @keyframes sheen{from{background-position:200% 0;}to{background-position:-200% 0;}}
 /* ---- rotating trophy ---- */
 .trophy-wrap{
-  position:relative; height:clamp(150px,26vh,250px); aspect-ratio:200/330;
+  position:relative; height:clamp(160px,28vh,266px); aspect-ratio:260/360;
   margin:14px auto 2px; perspective:900px;
   opacity:0; animation:rise 1.8s cubic-bezier(.22,.61,.36,1) .6s both;
 }
@@ -103,12 +103,12 @@ main{position:relative; z-index:2;}
 @keyframes tbob{0%,100%{margin-top:0;}50%{margin-top:-10px;}}
 .trophy-spin svg{
   position:absolute; inset:0; width:100%; height:100%;
-  filter:drop-shadow(0 14px 30px rgba(0,0,0,.55)) drop-shadow(0 0 34px rgba(217,70,239,.28));
+  filter:drop-shadow(0 14px 30px rgba(0,0,0,.55)) drop-shadow(0 0 36px rgba(255,196,60,.3));
 }
 .trophy-glow{
   position:absolute; left:50%; bottom:-26px; width:150%; height:44px;
   transform:translateX(-50%);
-  background:radial-gradient(ellipse at center, rgba(217,70,239,.4), transparent 65%);
+  background:radial-gradient(ellipse at center, rgba(246,190,60,.42), transparent 65%);
   animation:tglow 6s ease-in-out infinite;
 }
 @keyframes tglow{0%,100%{opacity:.55; transform:translateX(-50%) scale(1);}50%{opacity:1; transform:translateX(-50%) scale(1.15);}}
@@ -318,113 +318,109 @@ main{position:relative; z-index:2;}
     <p class="eyebrow">Beyond Awards&#8202;.&#8202; We Make K-POP History&#8202;.</p>
     <div class="trophy-wrap" aria-hidden="true">
       <div class="trophy-spin">
-        <svg viewBox="0 0 220 360" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 260 360" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <!-- crystal facets -->
-            <linearGradient id="cCenter" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#ffffff" stop-opacity=".95"/>
-              <stop offset=".22" stop-color="#e9d5ff" stop-opacity=".55"/>
-              <stop offset=".55" stop-color="#c4b5fd" stop-opacity=".38"/>
-              <stop offset="1" stop-color="#7c6bad" stop-opacity=".55"/>
+            <linearGradient id="gBright" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#fff8e1"/><stop offset=".35" stop-color="#ffd86b"/><stop offset=".72" stop-color="#e0a520"/><stop offset="1" stop-color="#8a5f06"/>
             </linearGradient>
-            <linearGradient id="cLeft" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#b9a8e8" stop-opacity=".78"/>
-              <stop offset="1" stop-color="#e0d3ff" stop-opacity=".4"/>
+            <linearGradient id="gFace" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#6b4a04"/><stop offset=".22" stop-color="#f8d878"/><stop offset=".5" stop-color="#fff4cc"/><stop offset=".78" stop-color="#d2a028"/><stop offset="1" stop-color="#5d3f03"/>
             </linearGradient>
-            <linearGradient id="cRight" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#8d7cc5" stop-opacity=".5"/>
-              <stop offset="1" stop-color="#4d3f78" stop-opacity=".85"/>
-            </linearGradient>
-            <!-- gold -->
-            <linearGradient id="goldStar" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#fff7d6"/><stop offset=".4" stop-color="#f7ce54"/><stop offset=".75" stop-color="#d4980f"/><stop offset="1" stop-color="#8f6508"/>
-            </linearGradient>
-            <linearGradient id="goldDark" x1="1" y1="0" x2="0" y2="1">
+            <linearGradient id="gDeep" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0" stop-color="#ffe9a3"/><stop offset=".5" stop-color="#c78f10"/><stop offset="1" stop-color="#6e4c05"/>
             </linearGradient>
-            <linearGradient id="goldBand" x1="0" y1="0" x2="1" y2="0">
+            <linearGradient id="gWingL" x1="1" y1="1" x2="0" y2="0">
+              <stop offset="0" stop-color="#8a5f06"/><stop offset=".45" stop-color="#eab63a"/><stop offset="1" stop-color="#fff1bd"/>
+            </linearGradient>
+            <linearGradient id="gWingR" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0" stop-color="#8a5f06"/><stop offset=".45" stop-color="#eab63a"/><stop offset="1" stop-color="#fff1bd"/>
+            </linearGradient>
+            <linearGradient id="gBand" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0" stop-color="#7a5708"/><stop offset=".18" stop-color="#f3cf6b"/><stop offset=".5" stop-color="#fff3c4"/><stop offset=".8" stop-color="#d3a92c"/><stop offset="1" stop-color="#6e4c05"/>
             </linearGradient>
-            <!-- black marble -->
-            <linearGradient id="marble" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#43434e"/><stop offset=".35" stop-color="#23232b"/><stop offset="1" stop-color="#0c0c11"/>
-            </linearGradient>
-            <linearGradient id="marbleFace" x1="0" y1="0" x2="1" y2="0">
+            <linearGradient id="mFace" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0" stop-color="#15151b"/><stop offset=".3" stop-color="#34343f"/><stop offset=".52" stop-color="#4a4a58"/><stop offset=".72" stop-color="#26262e"/><stop offset="1" stop-color="#0e0e13"/>
             </linearGradient>
+            <radialGradient id="rayGlow" cx=".5" cy=".5" r=".5">
+              <stop offset="0" stop-color="#ffe9a3" stop-opacity=".9"/><stop offset="1" stop-color="#ffd86b" stop-opacity="0"/>
+            </radialGradient>
             <filter id="blur3"><feGaussianBlur stdDeviation="3"/></filter>
             <filter id="blur8"><feGaussianBlur stdDeviation="8"/></filter>
-            <clipPath id="spireClip">
-              <polygon points="110,16 138,68 130,262 90,262 82,68"/>
-            </clipPath>
+            <clipPath id="colClip"><polygon points="114,132 146,132 152,252 108,252"/></clipPath>
           </defs>
 
           <!-- ground shadow -->
-          <ellipse cx="110" cy="348" rx="70" ry="8" fill="#000" opacity=".55" filter="url(#blur8)"/>
+          <ellipse cx="130" cy="348" rx="88" ry="9" fill="#000" opacity=".55" filter="url(#blur8)"/>
 
-          <!-- ===== crystal spire (faceted obelisk) ===== -->
-          <!-- back glow inside crystal -->
-          <circle cx="110" cy="120" r="34" fill="#f0abfc" opacity=".5" filter="url(#blur8)"/>
-          <!-- side facets -->
-          <polygon points="110,16 82,68 90,262 104,262 100,68" fill="url(#cLeft)"/>
-          <polygon points="110,16 138,68 130,262 116,262 120,68" fill="url(#cRight)"/>
-          <!-- center facet -->
-          <polygon points="110,16 120,68 116,262 104,262 100,68" fill="url(#cCenter)"/>
-          <!-- crisp edge lines -->
-          <polyline points="110,16 100,68 104,262" fill="none" stroke="#ffffff" stroke-opacity=".8" stroke-width="1.1"/>
-          <polyline points="110,16 120,68 116,262" fill="none" stroke="#ffffff" stroke-opacity=".35" stroke-width=".8"/>
-          <polyline points="110,16 82,68 90,262" fill="none" stroke="#e9d5ff" stroke-opacity=".5" stroke-width=".8"/>
-          <polyline points="110,16 138,68 130,262" fill="none" stroke="#3d3161" stroke-opacity=".9" stroke-width="1"/>
-          <!-- tip glint -->
-          <circle cx="110" cy="18" r="3" fill="#fff"/>
-          <path d="M110 6 l1.8 8 8 1.8 -8 1.8 -1.8 8 -1.8 -8 -8 -1.8 8 -1.8 Z" fill="#ffffff" opacity=".95"/>
-          <!-- specular streaks -->
-          <polygon points="97,80 100,80 96,236 93,236" fill="#ffffff" opacity=".75"/>
-          <polygon points="124,90 126.5,90 124.5,225 122,225" fill="#ffffff" opacity=".3"/>
-          <!-- gold star suspended in crystal -->
-          <g>
-            <circle cx="110" cy="120" r="24" fill="#fde68a" opacity=".35" filter="url(#blur3)"/>
-            <polygon points="110,92 117.5,112 139,112 122,125 128.5,146 110,133 91.5,146 98,125 81,112 102.5,112" fill="url(#goldStar)"/>
-            <polygon points="110,92 117.5,112 139,112 122,125 128.5,146 110,133 110,92" fill="url(#goldDark)" opacity=".8"/>
-            <polygon points="110,98 114,113 110,127 106,113" fill="#fffbe8" opacity=".7"/>
+          <!-- ===== radiant sunburst behind star ===== -->
+          <circle cx="130" cy="80" r="58" fill="url(#rayGlow)"/>
+          <g opacity=".85">
+            <polygon points="130,4 133,58 127,58" fill="url(#gBright)"/>
+            <polygon points="186,26 138,66 142,60" fill="#f3cf6b" opacity=".7"/>
+            <polygon points="74,26 122,66 118,60" fill="#f3cf6b" opacity=".7"/>
+            <polygon points="200,80 152,80 152,76" fill="#eab63a" opacity=".6"/>
+            <polygon points="60,80 108,80 108,76" fill="#eab63a" opacity=".6"/>
+            <polygon points="176,128 140,96 144,92" fill="#d3a92c" opacity=".45"/>
+            <polygon points="84,128 120,96 116,92" fill="#d3a92c" opacity=".45"/>
           </g>
-          <!-- moving light sheen across crystal -->
-          <g clip-path="url(#spireClip)">
-            <rect x="-60" y="0" width="34" height="270" fill="#ffffff" opacity=".32" transform="skewX(-12)">
-              <animate attributeName="x" from="-70" to="240" dur="4.2s" repeatCount="indefinite"/>
+
+          <!-- ===== golden star head (KAMA emblem) ===== -->
+          <g>
+            <polygon points="130,34 141,64 173,64 147.5,83 157,114 130,95.5 103,114 112.5,83 87,64 119,64" fill="url(#gBright)" stroke="#8a5f06" stroke-width="1"/>
+            <polygon points="130,34 141,64 173,64 147.5,83 157,114 130,95.5 130,34" fill="url(#gDeep)" opacity=".75"/>
+            <polygon points="130,42 136,65 130,88 124,65" fill="#fffbe8" opacity=".75"/>
+            <circle cx="130" cy="36" r="2.6" fill="#fff"/>
+          </g>
+
+          <!-- ===== majestic wings (global embrace) ===== -->
+          <path d="M104 210 C 52 192, 34 128, 66 76 C 60 130, 74 172, 112 194 Z" fill="url(#gWingL)"/>
+          <path d="M156 210 C 208 192, 226 128, 194 76 C 200 130, 186 172, 148 194 Z" fill="url(#gWingR)"/>
+          <path d="M100 196 C 62 180, 50 136, 70 96 C 68 138, 82 168, 108 184 Z" fill="#fff4cc" opacity=".28"/>
+          <path d="M160 196 C 198 180, 210 136, 190 96 C 192 138, 178 168, 152 184 Z" fill="#fff4cc" opacity=".28"/>
+
+          <!-- ===== fluted golden column ===== -->
+          <ellipse cx="130" cy="130" rx="18" ry="6" fill="url(#gBand)"/>
+          <polygon points="114,132 146,132 152,252 108,252" fill="url(#gFace)"/>
+          <polygon points="123,132 126,132 122,252 118,252" fill="#5d3f03" opacity=".35"/>
+          <polygon points="134,132 137,132 141,252 137,252" fill="#5d3f03" opacity=".35"/>
+          <polygon points="128,132 131,132 130,252 126,252" fill="#fffbe8" opacity=".8"/>
+          <!-- moving sheen on column -->
+          <g clip-path="url(#colClip)">
+            <rect x="-60" y="120" width="30" height="140" fill="#ffffff" opacity=".38" transform="skewX(-14)">
+              <animate attributeName="x" from="-70" to="300" dur="4.4s" repeatCount="indefinite"/>
             </rect>
           </g>
 
-          <!-- ===== base ===== -->
-          <!-- gold collar -->
-          <rect x="84" y="262" width="52" height="9" rx="2.5" fill="url(#goldBand)"/>
-          <rect x="84" y="262" width="52" height="3" rx="1.5" fill="#fff7d6" opacity=".55"/>
-          <!-- black marble block -->
-          <polygon points="78,271 142,271 152,305 68,305" fill="url(#marbleFace)"/>
-          <polygon points="78,271 142,271 144,276 76,276" fill="#565664" opacity=".7"/>
-          <line x1="88" y1="277" x2="80" y2="302" stroke="#8e8ea0" stroke-opacity=".28" stroke-width="1.6"/>
-          <line x1="96" y1="277" x2="90" y2="302" stroke="#8e8ea0" stroke-opacity=".14" stroke-width="3"/>
-          <!-- engraved gold plate -->
-          <rect x="86" y="282" width="48" height="13" rx="2" fill="url(#goldBand)"/>
-          <text x="110" y="291.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="8.5" font-weight="900" letter-spacing="3.4" fill="#4a3405">KAMA</text>
-          <!-- plinth -->
-          <rect x="60" y="305" width="100" height="16" rx="3" fill="url(#marble)"/>
-          <rect x="60" y="305" width="100" height="4" rx="2" fill="#6a6a7a" opacity=".55"/>
-          <rect x="54" y="321" width="112" height="10" rx="3" fill="#08080c"/>
+          <!-- ===== grand pedestal ===== -->
+          <polygon points="100,252 160,252 172,276 88,276" fill="url(#gBright)"/>
+          <polygon points="100,252 160,252 162,257 98,257" fill="#fff7d6" opacity=".6"/>
+          <polygon points="78,276 182,276 190,308 70,308" fill="url(#mFace)"/>
+          <line x1="92" y1="282" x2="84" y2="304" stroke="#8e8ea0" stroke-opacity=".25" stroke-width="1.6"/>
+          <line x1="102" y1="282" x2="96" y2="304" stroke="#8e8ea0" stroke-opacity=".12" stroke-width="3"/>
+          <rect x="102" y="284" width="56" height="15" rx="2" fill="url(#gBand)"/>
+          <text x="130" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="900" letter-spacing="4" fill="#4a3405">KAMA</text>
+          <rect x="62" y="308" width="136" height="11" rx="3" fill="url(#gBand)"/>
+          <rect x="54" y="319" width="152" height="13" rx="3" fill="#08080c"/>
+          <rect x="54" y="319" width="152" height="3.5" rx="1.5" fill="#3c3c46" opacity=".8"/>
+
           <!-- floor reflection -->
-          <g opacity=".18" transform="translate(0,660) scale(1,-1)">
-            <polygon points="110,16 82,68 90,262 130,262 138,68" fill="url(#cCenter)"/>
-            <rect x="60" y="305" width="100" height="16" rx="3" fill="url(#marble)"/>
+          <g opacity=".16" transform="translate(0,664) scale(1,-1)">
+            <polygon points="114,132 146,132 152,252 108,252" fill="url(#gFace)"/>
+            <rect x="62" y="308" width="136" height="11" rx="3" fill="url(#gBand)"/>
           </g>
+
           <!-- sparkles -->
-          <path d="M52 60 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2 Z" fill="#fff" opacity=".9">
+          <path d="M58 44 l2.2 6.5 6.5 2.2 -6.5 2.2 -2.2 6.5 -2.2 -6.5 -6.5 -2.2 6.5 -2.2 Z" fill="#fff" opacity=".9">
             <animate attributeName="opacity" values=".2;.95;.2" dur="3.2s" repeatCount="indefinite"/>
           </path>
-          <path d="M168 130 l1.7 5 5 1.7 -5 1.7 -1.7 5 -1.7 -5 -5 -1.7 5 -1.7 Z" fill="#f5d0fe" opacity=".8">
-            <animate attributeName="opacity" values=".9;.15;.9" dur="4.1s" repeatCount="indefinite"/>
+          <path d="M204 58 l1.8 5.5 5.5 1.8 -5.5 1.8 -1.8 5.5 -1.8 -5.5 -5.5 -1.8 5.5 -1.8 Z" fill="#ffe9a3" opacity=".8">
+            <animate attributeName="opacity" values=".85;.15;.85" dur="4.1s" repeatCount="indefinite"/>
           </path>
-          <path d="M46 200 l1.4 4 4 1.4 -4 1.4 -1.4 4 -1.4 -4 -4 -1.4 4 -1.4 Z" fill="#fde68a" opacity=".75">
+          <path d="M44 156 l1.5 4.5 4.5 1.5 -4.5 1.5 -1.5 4.5 -1.5 -4.5 -4.5 -1.5 4.5 -1.5 Z" fill="#f3cf6b" opacity=".75">
             <animate attributeName="opacity" values=".3;.85;.3" dur="5s" repeatCount="indefinite"/>
+          </path>
+          <path d="M216 168 l1.4 4 4 1.4 -4 1.4 -1.4 4 -1.4 -4 -4 -1.4 4 -1.4 Z" fill="#ffd86b" opacity=".7">
+            <animate attributeName="opacity" values=".8;.25;.8" dur="3.7s" repeatCount="indefinite"/>
           </path>
         </svg>
       </div>
