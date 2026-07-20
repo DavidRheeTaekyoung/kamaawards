@@ -115,7 +115,7 @@ main{position:relative; z-index:2;}
 
 .mark{
   font-family:'Archivo Black',sans-serif;
-  font-size:clamp(72px,17vw,200px); line-height:.92; letter-spacing:.01em;
+  font-size:clamp(100px,26vw,320px); line-height:.92; letter-spacing:.01em;
   margin:22px 0 8px; position:relative;
   background:linear-gradient(180deg,#fff 28%,#9a9aa6 74%,#43434c);
   -webkit-background-clip:text; background-clip:text; color:transparent;
@@ -316,116 +316,6 @@ main{position:relative; z-index:2;}
   <section class="section hero">
     <div class="hero-bg"><img src="assets/arena.jpg" alt="" aria-hidden="true"></div>
     <p class="eyebrow">Beyond Awards&#8202;.&#8202; We Make K-POP History&#8202;.</p>
-    <div class="trophy-wrap" aria-hidden="true">
-      <div class="trophy-spin">
-        <svg viewBox="0 0 260 360" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="gBright" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#fff8e1"/><stop offset=".35" stop-color="#ffd86b"/><stop offset=".72" stop-color="#e0a520"/><stop offset="1" stop-color="#8a5f06"/>
-            </linearGradient>
-            <linearGradient id="gFace" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#6b4a04"/><stop offset=".22" stop-color="#f8d878"/><stop offset=".5" stop-color="#fff4cc"/><stop offset=".78" stop-color="#d2a028"/><stop offset="1" stop-color="#5d3f03"/>
-            </linearGradient>
-            <linearGradient id="gDeep" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#ffe9a3"/><stop offset=".5" stop-color="#c78f10"/><stop offset="1" stop-color="#6e4c05"/>
-            </linearGradient>
-            <linearGradient id="gWingL" x1="1" y1="1" x2="0" y2="0">
-              <stop offset="0" stop-color="#8a5f06"/><stop offset=".45" stop-color="#eab63a"/><stop offset="1" stop-color="#fff1bd"/>
-            </linearGradient>
-            <linearGradient id="gWingR" x1="0" y1="1" x2="1" y2="0">
-              <stop offset="0" stop-color="#8a5f06"/><stop offset=".45" stop-color="#eab63a"/><stop offset="1" stop-color="#fff1bd"/>
-            </linearGradient>
-            <linearGradient id="gBand" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#7a5708"/><stop offset=".18" stop-color="#f3cf6b"/><stop offset=".5" stop-color="#fff3c4"/><stop offset=".8" stop-color="#d3a92c"/><stop offset="1" stop-color="#6e4c05"/>
-            </linearGradient>
-            <linearGradient id="mFace" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#15151b"/><stop offset=".3" stop-color="#34343f"/><stop offset=".52" stop-color="#4a4a58"/><stop offset=".72" stop-color="#26262e"/><stop offset="1" stop-color="#0e0e13"/>
-            </linearGradient>
-            <radialGradient id="rayGlow" cx=".5" cy=".5" r=".5">
-              <stop offset="0" stop-color="#ffe9a3" stop-opacity=".9"/><stop offset="1" stop-color="#ffd86b" stop-opacity="0"/>
-            </radialGradient>
-            <filter id="blur3"><feGaussianBlur stdDeviation="3"/></filter>
-            <filter id="blur8"><feGaussianBlur stdDeviation="8"/></filter>
-            <clipPath id="colClip"><polygon points="114,132 146,132 152,252 108,252"/></clipPath>
-          </defs>
-
-          <!-- ground shadow -->
-          <ellipse cx="130" cy="348" rx="88" ry="9" fill="#000" opacity=".55" filter="url(#blur8)"/>
-
-          <!-- ===== radiant sunburst behind star ===== -->
-          <circle cx="130" cy="80" r="58" fill="url(#rayGlow)"/>
-          <g opacity=".85">
-            <polygon points="130,4 133,58 127,58" fill="url(#gBright)"/>
-            <polygon points="186,26 138,66 142,60" fill="#f3cf6b" opacity=".7"/>
-            <polygon points="74,26 122,66 118,60" fill="#f3cf6b" opacity=".7"/>
-            <polygon points="200,80 152,80 152,76" fill="#eab63a" opacity=".6"/>
-            <polygon points="60,80 108,80 108,76" fill="#eab63a" opacity=".6"/>
-            <polygon points="176,128 140,96 144,92" fill="#d3a92c" opacity=".45"/>
-            <polygon points="84,128 120,96 116,92" fill="#d3a92c" opacity=".45"/>
-          </g>
-
-          <!-- ===== golden star head (KAMA emblem) ===== -->
-          <g>
-            <polygon points="130,34 141,64 173,64 147.5,83 157,114 130,95.5 103,114 112.5,83 87,64 119,64" fill="url(#gBright)" stroke="#8a5f06" stroke-width="1"/>
-            <polygon points="130,34 141,64 173,64 147.5,83 157,114 130,95.5 130,34" fill="url(#gDeep)" opacity=".75"/>
-            <polygon points="130,42 136,65 130,88 124,65" fill="#fffbe8" opacity=".75"/>
-            <circle cx="130" cy="36" r="2.6" fill="#fff"/>
-          </g>
-
-          <!-- ===== majestic wings (global embrace) ===== -->
-          <path d="M104 210 C 52 192, 34 128, 66 76 C 60 130, 74 172, 112 194 Z" fill="url(#gWingL)"/>
-          <path d="M156 210 C 208 192, 226 128, 194 76 C 200 130, 186 172, 148 194 Z" fill="url(#gWingR)"/>
-          <path d="M100 196 C 62 180, 50 136, 70 96 C 68 138, 82 168, 108 184 Z" fill="#fff4cc" opacity=".28"/>
-          <path d="M160 196 C 198 180, 210 136, 190 96 C 192 138, 178 168, 152 184 Z" fill="#fff4cc" opacity=".28"/>
-
-          <!-- ===== fluted golden column ===== -->
-          <ellipse cx="130" cy="130" rx="18" ry="6" fill="url(#gBand)"/>
-          <polygon points="114,132 146,132 152,252 108,252" fill="url(#gFace)"/>
-          <polygon points="123,132 126,132 122,252 118,252" fill="#5d3f03" opacity=".35"/>
-          <polygon points="134,132 137,132 141,252 137,252" fill="#5d3f03" opacity=".35"/>
-          <polygon points="128,132 131,132 130,252 126,252" fill="#fffbe8" opacity=".8"/>
-          <!-- moving sheen on column -->
-          <g clip-path="url(#colClip)">
-            <rect x="-60" y="120" width="30" height="140" fill="#ffffff" opacity=".38" transform="skewX(-14)">
-              <animate attributeName="x" from="-70" to="300" dur="4.4s" repeatCount="indefinite"/>
-            </rect>
-          </g>
-
-          <!-- ===== grand pedestal ===== -->
-          <polygon points="100,252 160,252 172,276 88,276" fill="url(#gBright)"/>
-          <polygon points="100,252 160,252 162,257 98,257" fill="#fff7d6" opacity=".6"/>
-          <polygon points="78,276 182,276 190,308 70,308" fill="url(#mFace)"/>
-          <line x1="92" y1="282" x2="84" y2="304" stroke="#8e8ea0" stroke-opacity=".25" stroke-width="1.6"/>
-          <line x1="102" y1="282" x2="96" y2="304" stroke="#8e8ea0" stroke-opacity=".12" stroke-width="3"/>
-          <rect x="102" y="284" width="56" height="15" rx="2" fill="url(#gBand)"/>
-          <text x="130" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="900" letter-spacing="4" fill="#4a3405">KAMA</text>
-          <rect x="62" y="308" width="136" height="11" rx="3" fill="url(#gBand)"/>
-          <rect x="54" y="319" width="152" height="13" rx="3" fill="#08080c"/>
-          <rect x="54" y="319" width="152" height="3.5" rx="1.5" fill="#3c3c46" opacity=".8"/>
-
-          <!-- floor reflection -->
-          <g opacity=".16" transform="translate(0,664) scale(1,-1)">
-            <polygon points="114,132 146,132 152,252 108,252" fill="url(#gFace)"/>
-            <rect x="62" y="308" width="136" height="11" rx="3" fill="url(#gBand)"/>
-          </g>
-
-          <!-- sparkles -->
-          <path d="M58 44 l2.2 6.5 6.5 2.2 -6.5 2.2 -2.2 6.5 -2.2 -6.5 -6.5 -2.2 6.5 -2.2 Z" fill="#fff" opacity=".9">
-            <animate attributeName="opacity" values=".2;.95;.2" dur="3.2s" repeatCount="indefinite"/>
-          </path>
-          <path d="M204 58 l1.8 5.5 5.5 1.8 -5.5 1.8 -1.8 5.5 -1.8 -5.5 -5.5 -1.8 5.5 -1.8 Z" fill="#ffe9a3" opacity=".8">
-            <animate attributeName="opacity" values=".85;.15;.85" dur="4.1s" repeatCount="indefinite"/>
-          </path>
-          <path d="M44 156 l1.5 4.5 4.5 1.5 -4.5 1.5 -1.5 4.5 -1.5 -4.5 -4.5 -1.5 4.5 -1.5 Z" fill="#f3cf6b" opacity=".75">
-            <animate attributeName="opacity" values=".3;.85;.3" dur="5s" repeatCount="indefinite"/>
-          </path>
-          <path d="M216 168 l1.4 4 4 1.4 -4 1.4 -1.4 4 -1.4 -4 -4 -1.4 4 -1.4 Z" fill="#ffd86b" opacity=".7">
-            <animate attributeName="opacity" values=".8;.25;.8" dur="3.7s" repeatCount="indefinite"/>
-          </path>
-        </svg>
-      </div>
-      <div class="trophy-glow"></div>
-    </div>
     <h1 class="mark">KAMA</h1>
     <p class="subname">K-Pop American Music Awards</p>
     <p class="when">2027.4</p>
