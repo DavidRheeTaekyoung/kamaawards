@@ -137,10 +137,11 @@ main{position:relative; z-index:2;}
 }
 .when{
   margin-top:42px; font-family:'Archivo Black',sans-serif;
-  font-size:clamp(30px,5.5vw,58px); letter-spacing:.06em;
-  background:linear-gradient(90deg,#c084fc,#f0abfc,#f9a8d4,#c084fc);
+  font-size:clamp(34px,6vw,64px); letter-spacing:.06em;
+  background:linear-gradient(90deg,#ffffff,#fde68a,#fbcfe8,#ffffff);
   background-size:300% 100%;
   -webkit-background-clip:text; background-clip:text; color:transparent;
+  filter:drop-shadow(0 2px 6px rgba(0,0,0,.85)) drop-shadow(0 0 22px rgba(240,171,252,.55));
   animation:rise 1.5s cubic-bezier(.22,.61,.36,1) 1.9s both, flow 7s linear 3s infinite;
 }
 @keyframes flow{from{background-position:0% 0;}to{background-position:300% 0;}}
@@ -258,10 +259,11 @@ main{position:relative; z-index:2;}
 .finale .togeth{display:block; margin-top:6px;}
 .finale .foot{
   margin-top:70px; display:flex; align-items:center; gap:20px;
-  font-size:11px; letter-spacing:.34em; text-indent:.34em; color:rgba(255,255,255,.42);
+  font-size:13px; letter-spacing:.34em; text-indent:.34em; color:rgba(255,255,255,.88);
   text-transform:uppercase;
 }
-.finale .foot .dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.4);}
+.finale .foot .dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.7);}
+.finale .foot span:first-child{color:#fde68a; font-weight:600;}
 .coords{
   padding:0 0 34px; text-align:center;
   font-size:10.5px; letter-spacing:.3em; text-indent:.3em; color:rgba(255,255,255,.2);
